@@ -7,7 +7,7 @@ $MAX_ID = 3; //set based on required maximum numbers
 for($id = 1; $id <= $MAX_ID; $id++)
 {
   // // Read in a MCI doctor page
-    $html = scraperwiki::scrape("http://www.mciindia.org/ViewDetails.aspx?ID=".$id);
+    $html = scraperwiki::scrape("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
   // Find something on the page using css selectors
    $dom = new simple_html_dom();
    $dom->load($html);
