@@ -1,3 +1,4 @@
+<?
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
@@ -27,3 +28,4 @@ for($id = 1; $id <= $MAX_ID; $id++)
 
 
 }
+?>
