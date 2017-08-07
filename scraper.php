@@ -13,17 +13,8 @@ for($id = 1; $id <= $MAX_ID; $id++)
    $dom->load($html);
    
    // walk through the dom and extract doctor information
-   echo $doc_name = $dom->find('span[id=Name]')->plaintext;
-   $doc_fname = $dom->find('span[id="FatherName"]')->plaintext;
-   $doc_dob = $dom->find('span[id="DOB"]')->plaintext;
-   $doc_infoyear = $dom->find('span[id="lbl_Info"]')->plaintext;
-   $doc_regnum = $dom->find('span[id="Regis_no"]')->plaintext;
-   $doc_datereg = $dom->find('span[id="Date_Reg"]')->plaintext;
-   $doc_council = $dom->find('span[id="Lbl_Council"]')->plaintext;
-   $doc_qual = $dom->find('span[id="Qual"]')->plaintext;
-   $doc_qualyear = $dom->find('span[id="QualYear"]')->plaintext;
-   $doc_univ = $dom->find('span[id="Univ"]')->plaintext;
-   $doc_address = $dom->find('span[id="Address"]')->plaintext;
+   echo $doc_name = $dom->find('span[id=Name]');
+  
 
 
 
