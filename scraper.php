@@ -25,7 +25,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $QualYear		= $link->find('span[id="QualYear"]',0)->plaintext;
     $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
     $Address		= $link->find('span[id="Address"]',0)->plaintext;
-	
+	sleep(5);
 	
 if($Name != null)
 	{
