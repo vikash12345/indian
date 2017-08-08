@@ -10,19 +10,19 @@ for($id = 1; $id <= 3; $id++)
 	$link2 = file_get_html($url);
    
    // walk through the dom and extract doctor information
-   $info['doc_name'] = $dom->find('span[id=Name]',0)->plaintext;
-   $info['doc_fname'] = $dom->find('span[id="FatherName"]')->plaintext;
-   $info['doc_dob'] = $dom->find('span[id="DOB"]')->plaintext;
-   $info['doc_infoyear'] = $dom->find('span[id="lbl_Info"]')->plaintext;
-   $info['doc_regnum'] = $dom->find('span[id="Regis_no"]')->plaintext;
-   $info['doc_datereg'] = $dom->find('span[id="Date_Reg"]')->plaintext;
-   $info['doc_council'] = $dom->find('span[id="Lbl_Council"]')->plaintext;
-   $info['doc_qual'] = $dom->find('span[id="Qual"]')->plaintext;
-   $info['doc_qualyear'] = $dom->find('span[id="QualYear"]')->plaintext;
-   $info['doc_univ'] = $dom->find('span[id="Univ"]')->plaintext;
-   $info['doc_address'] = $dom->find('span[id="Address"]')->plaintext;
+   $info['doc_name'] = $link2->find('span[id=Name]',0)->plaintext;
+   $info['doc_fname'] = $link2->find('span[id="FatherName"]')->plaintext;
+   $info['doc_dob'] = $link2->find('span[id="DOB"]')->plaintext;
+   $info['doc_infoyear'] = $link2->find('span[id="lbl_Info"]')->plaintext;
+   $info['doc_regnum'] = $link2->find('span[id="Regis_no"]')->plaintext;
+   $info['doc_datereg'] = $link2->find('span[id="Date_Reg"]')->plaintext;
+   $info['doc_council'] = $link2->find('span[id="Lbl_Council"]')->plaintext;
+   $info['doc_qual'] = $link2->find('span[id="Qual"]')->plaintext;
+   $info['doc_qualyear'] = $link2->find('span[id="QualYear"]')->plaintext;
+   $info['doc_univ'] = $link2->find('span[id="Univ"]')->plaintext;
+   $info['doc_address'] = $link2->find('span[id="Address"]')->plaintext;
 
-// print_r($dom->find("table.list"));
+// print_r($link2->find("table.list"));
 //
 // // Write out to the sqlite database using scraperwiki library
  scraperwiki::save_sqlite(array('mci_snum','registration_number'), 
@@ -40,7 +40,7 @@ for($id = 1; $id <= 3; $id++)
     ));
     
   //clean out the dom
-  $dom->__destruct();
+  $link2->__destruct();
 }
 // // An arbitrary query against the database
 // scraperwiki::select("* from data where 'name'='peter'")
