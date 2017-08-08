@@ -27,7 +27,7 @@ for($id = 1; $id <= 3; $id++)
     $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
     $Address			= $link->find('span[id="Address"]',0)->plaintext;
 
-	}if($link){
+	if(is_object($Name)){
 
 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
  	
@@ -36,6 +36,7 @@ for($id = 1; $id <= 3; $id++)
 //
 	}
 	
+	}
    
  
 
