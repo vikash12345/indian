@@ -12,8 +12,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
   // Find something on the page using css selectors
 		$html = file_get_html($url);
 	
- foreach($html->find("//*[@id='form1']/div[3]/table/tbody") as $link)
-{
+
 	
    // walk through the dom and extract doctor information
 	if($link){
@@ -36,7 +35,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
 
 
 //
-	}}}
+	}}
 	
    
  
