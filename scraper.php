@@ -3,7 +3,7 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
 
-$MAX_ID = 1; //set based on required maximum numbers
+$MAX_ID = 5; //set based on required maximum numbers
 /** looping over list of ids of doctors **/
 for($id = 1; $id <= $MAX_ID; $id++)
 {
