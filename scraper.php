@@ -26,16 +26,16 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $Address		= $link->find('span[id="Address"]',0)->plaintext;
 	
 	
-
-
-	}
-//
-
-	if($Name != null)
+if($Name != null)
 	{
 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
 
 	}
+
+	}
+//
+
+	
    
  
 
