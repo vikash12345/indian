@@ -11,7 +11,7 @@ for($id = 1; $id <= 1; $id++)
   // Find something on the page using css selectors
    $dom = new simple_html_dom();
    $dom->load($html);
-   foreach($dom->find("//*[@id="form1"]/div[3]/table/tbody") as $element)
+   foreach($dom->find("//*[@id='form1']/div[3]/table/tbody") as $element)
 {
 	if($element)
   {
@@ -21,6 +21,6 @@ for($id = 1; $id <= 1; $id++)
   
   }
 
-
+   }
 }
 ?>
