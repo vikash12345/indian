@@ -4,17 +4,14 @@ require 'scraperwiki/simple_html_dom.php';
 //
 /** looping over list of ids of doctors **/
 for($id = 1; $id <= 3; $id++)
-{
-  // // Read in a MCI doctor page
-    $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
-	
-  // Find something on the page using css selectors
-		$link = file_get_html($url);
-	
+	{
+    		$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
+		
+	}
 
-	
+	$link = file_get_html($url);
    // walk through the dom and extract doctor information
-	
+	if($link){
     $Name 			= $link->find('span[id=Name]',0)->plaintext;
     $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
     $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
@@ -26,6 +23,7 @@ for($id = 1; $id <= 3; $id++)
     $QualYear			= $link->find('span[id="QualYear"]',0)->plaintext;
     $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
     $Address			= $link->find('span[id="Address"]',0)->plaintext;
+	}
 if($Name){
 	echo $Name;
     scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
@@ -33,7 +31,7 @@ if($Name){
 //
 	
 	
-	}
+
    
  
 
