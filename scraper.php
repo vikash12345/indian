@@ -14,7 +14,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
    // walk through the dom and extract doctor information
 	
      $info['Name']			= $link->find('span[id=Name]',0)->plaintext;
-    $info['FatherName']		= $link->find('span[id="FatherName"]',0)->plaintext;
+    $info['FatherName']			= $link->find('span[id="FatherName"]',0)->plaintext;
     $info['DOB']			= $link->find('span[id="DOB"]',0)->plaintext;
     $info['YOI']			= $link->find('span[id="lbl_Info"]',0)->plaintext;
    $info['RegNo'] 			= $link->find('span[id="Regis_no"]',0)->plaintext;
@@ -24,10 +24,10 @@ for($id = 1; $id <= $MAX_ID; $id++)
    $info['QualYear']			= $link->find('span[id="QualYear"]',0)->plaintext;
    $info['Univ']			= $link->find('span[id="Univ"]',0)->plaintext;
    $info['Address']		= $link->find('span[id="Address"]',0)->plaintext;
-	
+	if(is_object($info['Name'])){
     scraperwiki::save_sqlite(array('name'), array('name' => $info['Name'] , 'FatherName' => $info['FatherName'],  'YOI' => $info['YOI'], 'DOB' => $info['DOB'], 'RegNo' => $info['RegNo'], 'DateReg' => $info['DateReg'], 'SMC' => $info['SMC'], 'Qual' => $info['Qual'], 'QualYear' => $info['QualYear'], 'Univ' => $info['Univ'], 'Address' => $info['Address'], 'url' => $info['url']));
 	
-   
+	}
 //
 
 	
