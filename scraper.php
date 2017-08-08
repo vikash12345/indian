@@ -29,7 +29,10 @@ for($id = 1; $id <= $MAX_ID; $id++)
 //
 
 	
-   
+    if(is_object($Name)){
+	   	 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
+
+}
  
 
 // scraperwiki::select("* from data where 'name'='peter'")
@@ -39,10 +42,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
 // called "data.sqlite" in the current working directory which has at least a table
 // called "data".
 }
-  if(is_object($Name)){
-	   	 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
-
-}
+ 
 
 
 ?>
