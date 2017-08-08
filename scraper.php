@@ -48,6 +48,6 @@ if($Name != null)
 // called "data".
 }
 
- $dom->__destruct();
+ $link->__destruct();
 
 ?>
