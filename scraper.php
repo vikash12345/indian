@@ -7,7 +7,7 @@ for($id = 1; $id <= 1199999; $id++)
 	{
 
 	 $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
-	 echo "$url...\n";
+	 echo "Hited on that URL -> $url\n";
 	sleep(2);
 	$link2 = file_get_html($url);
    
