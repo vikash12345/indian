@@ -5,27 +5,49 @@ require 'scraperwiki/simple_html_dom.php';
 /** looping over list of ids of doctors **/
 for($id = 1; $id <= 3; $id++)
 	{
-	
-	
 
-    		$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
+$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
 		$link2 = file_get_html($url);
-foreach($link2->find("//*[@id='form1']/div[3]/table/tbody") as $link)
-{	
-	
+   
    // walk through the dom and extract doctor information
-		echo $Name 			= $link->find('span[id=Name]',0)->plaintext;
-    		echo $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
-   		echo $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
-    		echo $YOI			= $link->find('span[id="lbl_Info"]',0)->plaintext;
-   		$RegNo 			= $link->find('span[id="Regis_no"]',0)->plaintext;
-    		$DateReg		= $link->find('span[id="Date_Reg"]',0)->plaintext;
-		$SMC			= $link->find('span[id="Lbl_Council"]',0)->plaintext;
-    		$Qual			= $link->find('span[id="Qual"]',0)->plaintext;
-    		$QualYear		= $link->find('span[id="QualYear"]',0)->plaintext;
-   		$Univ			= $link->find('span[id="Univ"]',0)->plaintext;
-   		$Address		= $link->find('span[id="Address"]',0)->plaintext;
-		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName, 'DOB' => $DOB, 'YOI' => $YOI, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
-		}
-	}
-		?>
+   $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
+   $info['doc_fname'] = $dom->find('span[id="FatherName"]')->plaintext;
+   $info['doc_dob'] = $dom->find('span[id="DOB"]')->plaintext;
+   $info['doc_infoyear'] = $dom->find('span[id="lbl_Info"]')->plaintext;
+   $info['doc_regnum'] = $dom->find('span[id="Regis_no"]')->plaintext;
+   $info['doc_datereg'] = $dom->find('span[id="Date_Reg"]')->plaintext;
+   $info['doc_council'] = $dom->find('span[id="Lbl_Council"]')->plaintext;
+   $info['doc_qual'] = $dom->find('span[id="Qual"]')->plaintext;
+   $info['doc_qualyear'] = $dom->find('span[id="QualYear"]')->plaintext;
+   $info['doc_univ'] = $dom->find('span[id="Univ"]')->plaintext;
+   $info['doc_address'] = $dom->find('span[id="Address"]')->plaintext;
+
+// print_r($dom->find("table.list"));
+//
+// // Write out to the sqlite database using scraperwiki library
+ scraperwiki::save_sqlite(array('mci_snum','registration_number'), 
+    array('mci_snum' => $id, 
+          'name' => (trim($info['doc_name'])), 
+          'fathers_name' => (trim($info['doc_fname'])),
+          'date_of_birth' => (trim($info['doc_dob'])),
+          'information_year' => (trim($info['doc_infoyear'])),
+          'registration_number' => (trim($info['doc_regnum'])),
+          'date_of_reg' => (trim($info['doc_datereg'])),
+          'council' => (trim($info['doc_council'])),
+          'qualifications' => (trim($info['doc_qual'])),
+          'qualification_year' => (trim($info['doc_qualyear'])),
+          'permanent_address' => (trim($info['doc_address']))
+    ));
+    
+  //clean out the dom
+  $dom->__destruct();
+}
+// // An arbitrary query against the database
+// scraperwiki::select("* from data where 'name'='peter'")
+
+// You don't have to do things with the ScraperWiki library.
+// You can use whatever libraries you want: https://morph.io/documentation/php
+// All that matters is that your final data is written to an SQLite database
+// called "data.sqlite" in the current working directory which has at least a table
+// called "data".
+?>
