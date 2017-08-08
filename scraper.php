@@ -27,7 +27,9 @@ for($id = 1; $id <= $MAX_ID; $id++)
 	   if($Name != null || $Name !=""){
 	   	 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
 
-}
+}else{
+		   break;
+	}
    }
 //
 
