@@ -37,7 +37,7 @@ for($id = 1; $id <= 3; $id++)
           'qualifications' => (trim($info['doc_qual'])),
           'qualification_year' => (trim($info['doc_qualyear'])),
           'permanent_address' => (trim($info['doc_address'])),
-	  'URL' => (trim($info['URL'])),
+	  'URL' => (trim($info['URL']))
     ));
     
   //clean out the dom
