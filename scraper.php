@@ -13,14 +13,7 @@ for($id = 1; $id <= 1; $id++)
    $dom->load($html);
    foreach($dom->find("//*[@id='form1']/div[3]/table/tbody") as $element)
 {
-	if($element)
-  {
-   // walk through the dom and extract doctor information
-    $doc_name = $element->find('span[id=Name]');
-  echo $doc_name;
-  
-  }
-
+	echo $element;
    }
 }
 ?>
