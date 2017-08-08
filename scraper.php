@@ -21,7 +21,7 @@ for($id = 1; $id <= 3; $id++)
    $info['doc_qualyear'] = $link2->find('span[id="QualYear"]',0)->plaintext;
    $info['doc_univ'] = $link2->find('span[id="Univ"]',0)->plaintext;
    $info['doc_address'] = $link2->find('span[id="Address"]',0)->plaintext;
-
+	$info['URL'] = $link2;
 // print_r($link2->find("table.list"));
 //
 // // Write out to the sqlite database using scraperwiki library
@@ -37,7 +37,7 @@ for($id = 1; $id <= 3; $id++)
           'qualifications' => (trim($info['doc_qual'])),
           'qualification_year' => (trim($info['doc_qualyear'])),
           'permanent_address' => (trim($info['doc_address'])),
-	  'URL' => $link2;
+	  'URL' => (trim($info['URL'])),
     ));
     
   //clean out the dom
