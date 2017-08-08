@@ -16,6 +16,17 @@ for($id = 1; $id <= $MAX_ID; $id++)
 //
 
 	
+   
+ 
+
+// scraperwiki::select("* from data where 'name'='peter'")
+// You don't have to do things with the ScraperWiki library.
+// You can use whatever libraries you want: https://morph.io/documentation/php
+// All that matters is that your final data is written to an SQLite database
+// called "data.sqlite" in the current working directory which has at least a table
+// called "data".
+}
+if($link){
    echo $Name 			= $link->find('span[id=Name]',0)->plaintext;
    echo $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
    echo $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
@@ -27,17 +38,6 @@ for($id = 1; $id <= $MAX_ID; $id++)
    echo $QualYear		= $link->find('span[id="QualYear"]',0)->plaintext;
    echo $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
    echo $Address		= $link->find('span[id="Address"]',0)->plaintext;
- 
-
-// scraperwiki::select("* from data where 'name'='peter'")
-// You don't have to do things with the ScraperWiki library.
-// You can use whatever libraries you want: https://morph.io/documentation/php
-// All that matters is that your final data is written to an SQLite database
-// called "data.sqlite" in the current working directory which has at least a table
-// called "data".
-}
-if($link){
-	
 	 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
 }
 ?>
