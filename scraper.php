@@ -2,15 +2,14 @@
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //
-$url1 = "https://old.mciindia.org/ViewDetails.aspx?ID=";
-$MAX_ID = 3; //set based on required maximum numbers
 /** looping over list of ids of doctors **/
-for($id = 1; $id <= $MAX_ID; $id++)
+for($id = 1; $id <= 3; $id++)
 {
   // // Read in a MCI doctor page
-    $url = $url1 . $id;
+    $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
+	
   // Find something on the page using css selectors
-		$html = file_get_html($url);
+		$link = file_get_html($url);
 	
 
 	
