@@ -17,7 +17,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
 	
    // walk through the dom and extract doctor information
 	if($link){
-     $Name 			= $link->find('span[id=Name]',0)->plaintext;
+   echo  $Name 			= $link->find('span[id=Name]',0)->plaintext;
     $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
     $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
     $YOI			= $link->find('span[id="lbl_Info"]',0)->plaintext;
