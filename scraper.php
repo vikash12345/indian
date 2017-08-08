@@ -6,11 +6,11 @@ require 'scraperwiki/simple_html_dom.php';
 for($id = 1; $id <= 3; $id++)
 	{
 
-$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
-		$link2 = file_get_html($url);
+	$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
+	$link2 = file_get_html($url);
    
    // walk through the dom and extract doctor information
-   $info['doc_name'] = $dom->find('span[id=Name]')->plaintext;
+   $info['doc_name'] = $dom->find('span[id=Name]',0)->plaintext;
    $info['doc_fname'] = $dom->find('span[id="FatherName"]')->plaintext;
    $info['doc_dob'] = $dom->find('span[id="DOB"]')->plaintext;
    $info['doc_infoyear'] = $dom->find('span[id="lbl_Info"]')->plaintext;
