@@ -10,10 +10,10 @@ for($id = 1; $id <= 3; $id++)
 foreach($link2->find("//*[@id='form1']/div[3]/table/tbody") as $link)
 {	if($link){
    // walk through the dom and extract doctor information
-		$Name 			= $link->find('span[id=Name]',0)->plaintext;
-    		$FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
-   		$DOB			= $link->find('span[id="DOB"]',0)->plaintext;
-    		$YOI			= $link->find('span[id="lbl_Info"]',0)->plaintext;
+		echo $Name 			= $link->find('span[id=Name]',0)->plaintext;
+    		echo $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
+   		echo $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
+    		echo $YOI			= $link->find('span[id="lbl_Info"]',0)->plaintext;
    		$RegNo 			= $link->find('span[id="Regis_no"]',0)->plaintext;
     		$DateReg		= $link->find('span[id="Date_Reg"]',0)->plaintext;
 		$SMC			= $link->find('span[id="Lbl_Council"]',0)->plaintext;
