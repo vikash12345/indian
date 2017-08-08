@@ -11,12 +11,15 @@ for($id = 1; $id <= 1; $id++)
   // Find something on the page using css selectors
    $dom = new simple_html_dom();
    $dom->load($html);
-   
+   foreach($dom->find("//*[@id="form1"]/div[3]/table/tbody") as $element)
+{
+	if($element)
+  {
    // walk through the dom and extract doctor information
-    $doc_name = $dom->find('span[id=Name]');
+    $doc_name = $element->find('span[id=Name]');
   echo $doc_name;
   
-
+  }
 
 
 }
