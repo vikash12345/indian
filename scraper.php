@@ -14,7 +14,7 @@ for($id = 1; $id <= 1; $id++)
    
    // walk through the dom and extract doctor information
     $doc_name = $dom->find('span[id=Name]');
-  echo $doc_name
+  echo $doc_name;
   
 
 
