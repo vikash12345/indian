@@ -12,7 +12,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
   // Find something on the page using css selectors
 		$link = file_get_html($url);
    // walk through the dom and extract doctor information
-   if($link){
+   if(is_object($link)){
    echo $Name 			= $link->find('span[id=Name]',0)->plaintext;
     $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
     $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
@@ -24,7 +24,8 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $QualYear		= $link->find('span[id="QualYear"]',0)->plaintext;
     $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
     $Address		= $link->find('span[id="Address"]',0)->plaintext;
-	 
+scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
+
    }
 //
 
@@ -41,7 +42,6 @@ for($id = 1; $id <= $MAX_ID; $id++)
 // called "data.sqlite" in the current working directory which has at least a table
 // called "data".
 }
- 	   	 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
 
 
 
