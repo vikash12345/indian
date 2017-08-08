@@ -24,9 +24,9 @@ for($id = 1; $id <= $MAX_ID; $id++)
    $info['$QualYear']			= $link->find('span[id="QualYear"]',0)->plaintext;
    $info['$Univ']			= $link->find('span[id="Univ"]',0)->plaintext;
    $info['$Address']		= $link->find('span[id="Address"]',0)->plaintext;
-	if(is_object($link)){
+	
     scraperwiki::save_sqlite(array('name'), array('name' => $info['$Name'] , 'FatherName' => $info['$FatherName'],  'YOI' => $info['$YOI'], 'DOB' => $info['$DOB'], 'RegNo' => $info['$RegNo'], 'DateReg' => $info['$DateReg'], 'SMC' => $info['$SMC'], 'Qual' => $info['$Qual'], 'QualYear' => $info['$QualYear'], 'Univ' => $info['$Univ'], 'Address' => $info['$Address'], 'url' => $info['$url']));
-	}
+	
    
 //
 
