@@ -10,9 +10,14 @@ for($id = 1; $id <= $MAX_ID; $id++)
   // // Read in a MCI doctor page
     $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
   // Find something on the page using css selectors
-		$link = file_get_html($url);
+		$html = file_get_html($url);
    // walk through the dom and extract doctor information
-   
+	
+	
+	foreach($html->find("//*[@id='form1']/div[3]/table/tbody") as $link)
+
+	{if($element)
+	{
    echo $Name 			= $link->find('span[id=Name]',0)->plaintext;
     $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
     $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
@@ -26,7 +31,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $Address		= $link->find('span[id="Address"]',0)->plaintext;
 	if($Name != null || $Name != ""){
 	 scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
-
+	}}
 }
    }
 //
