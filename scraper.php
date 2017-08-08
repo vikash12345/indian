@@ -6,7 +6,7 @@ require 'scraperwiki/simple_html_dom.php';
 for($id = 1; $id <= 3; $id++)
 	{
     		$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
-		 = file_get_html($url);
+		$link = file_get_html($url);
 	if($link){
    // walk through the dom and extract doctor information
 		$Name 			= $link->find('span[id=Name]',0)->plaintext;
