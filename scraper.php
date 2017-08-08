@@ -20,8 +20,8 @@ for($id = 1; $id <= 3; $id++)
     		$QualYear			= $link->find('span[id="QualYear"]',0)->plaintext;
    		 $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
    		 $Address			= $link->find('span[id="Address"]',0)->plaintext;
-		}if($Name){
+		}}if($Name){
 	echo $Name;
     scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName, 'DOB' => $DOB, 'YOI' => $YOI, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
-}}
+}
 ?>
