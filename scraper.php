@@ -10,8 +10,11 @@ for($id = 1; $id <= $MAX_ID; $id++)
   // // Read in a MCI doctor page
     $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
   // Find something on the page using css selectors
-		$link = file_get_html($url);
-	sleep(5);
+		$html = file_get_html($url);
+	
+ foreach($html->find("//*[@id='form1']/div[3]/table/tbody") as $link)
+{
+	
    // walk through the dom and extract doctor information
 	if($link){
      $Name 			= $link->find('span[id=Name]',0)->plaintext;
@@ -27,16 +30,13 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $Address		= $link->find('span[id="Address"]',0)->plaintext;
 	sleep(5);
 	
-if($Name != null)
-	{
-		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
- 	}
-else{
-	break;
-}
-	}
-//
 
+		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
+ 	
+
+
+//
+	}}}
 	
    
  
@@ -47,7 +47,6 @@ else{
 // All that matters is that your final data is written to an SQLite database
 // called "data.sqlite" in the current working directory which has at least a table
 // called "data".
-}
 
 
 
