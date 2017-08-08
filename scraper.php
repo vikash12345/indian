@@ -11,6 +11,7 @@ for($id = 1; $id <= $MAX_ID; $id++)
     $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
   // Find something on the page using css selectors
 		$link = file_get_html($url);
+	sleep(5);
    // walk through the dom and extract doctor information
 	if($link){
      $Name 			= $link->find('span[id=Name]',0)->plaintext;
