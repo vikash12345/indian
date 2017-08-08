@@ -11,16 +11,16 @@ for($id = 1; $id <= 3; $id++)
    
    // walk through the dom and extract doctor information
    $info['doc_name'] = $link2->find('span[id=Name]',0)->plaintext;
-   $info['doc_fname'] = $link2->find('span[id="FatherName"]')->plaintext;
-   $info['doc_dob'] = $link2->find('span[id="DOB"]')->plaintext;
-   $info['doc_infoyear'] = $link2->find('span[id="lbl_Info"]')->plaintext;
-   $info['doc_regnum'] = $link2->find('span[id="Regis_no"]')->plaintext;
-   $info['doc_datereg'] = $link2->find('span[id="Date_Reg"]')->plaintext;
-   $info['doc_council'] = $link2->find('span[id="Lbl_Council"]')->plaintext;
-   $info['doc_qual'] = $link2->find('span[id="Qual"]')->plaintext;
-   $info['doc_qualyear'] = $link2->find('span[id="QualYear"]')->plaintext;
-   $info['doc_univ'] = $link2->find('span[id="Univ"]')->plaintext;
-   $info['doc_address'] = $link2->find('span[id="Address"]')->plaintext;
+   $info['doc_fname'] = $link2->find('span[id="FatherName]',0)->plaintext;
+   $info['doc_dob'] = $link2->find('span[id="DOB]',0)->plaintext;
+   $info['doc_infoyear'] = $link2->find('span[id="lbl_Info]',0)->plaintext;
+   $info['doc_regnum'] = $link2->find('span[id="Regis_no]',0)->plaintext;
+   $info['doc_datereg'] = $link2->find('span[id="Date_Reg]',0)->plaintext;
+   $info['doc_council'] = $link2->find('span[id="Lbl_Council]',0)->plaintext;
+   $info['doc_qual'] = $link2->find('span[id="Qual]',0)->plaintext;
+   $info['doc_qualyear'] = $link2->find('span[id="QualYear]',0)->plaintext;
+   $info['doc_univ'] = $link2->find('span[id="Univ]',0)->plaintext;
+   $info['doc_address'] = $link2->find('span[id="Address]',0)->plaintext;
 
 // print_r($link2->find("table.list"));
 //
