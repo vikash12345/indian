@@ -7,7 +7,7 @@ for($id = 1; $id <= 3; $id++)
 	{
     		$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
 		$link2 = file_get_html($url);
-foreach($link2->find("//*[@id='form1']/div[3]/table/tbody") as $link)
+foreach($link2->find("//*[@id='form1']/div[3]/table/tbody/tr") as $link)
 {	if($link){
    // walk through the dom and extract doctor information
 		echo $Name 			= $link->find('span[id=Name]',0)->plaintext;
