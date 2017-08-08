@@ -6,7 +6,9 @@ require 'scraperwiki/simple_html_dom.php';
 for($id = 1; $id <= 1199999; $id++)
 	{
 
-	$url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
+	 $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
+	 echo "$url...\n";
+	sleep(2);
 	$link2 = file_get_html($url);
    
    // walk through the dom and extract doctor information
