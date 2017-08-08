@@ -14,7 +14,7 @@ for($id = 1; $id <= 3; $id++)
 
 	
    // walk through the dom and extract doctor information
-	if($link){
+	
    echo  $Name 			= $link->find('span[id=Name]',0)->plaintext;
     $FatherName 		= $link->find('span[id="FatherName"]',0)->plaintext;
     $DOB			= $link->find('span[id="DOB"]',0)->plaintext;
@@ -27,7 +27,7 @@ for($id = 1; $id <= 3; $id++)
     $Univ			= $link->find('span[id="Univ"]',0)->plaintext;
     $Address			= $link->find('span[id="Address"]',0)->plaintext;
 
-	
+	if($link){
 
 		scraperwiki::save_sqlite(array('name'), array('name' => $Name , 'FatherName' => $FatherName,  'YOI' => $YOI,'DOB' => $DOB, 'RegNo' => $RegNo, 'DateReg' => $DateReg, 'SMC' => $SMC, 'Qual' => $Qual, 'QualYear' => $QualYear, 'Univ' => $Univ, 'Address' => $Address, 'url' => $url));
  	
