@@ -8,7 +8,7 @@ for($id = 367729; $id <= 1199999; $id++)
 
 	 $url = ("https://old.mciindia.org/ViewDetails.aspx?ID=".$id);
 	$link2 = file_get_html($url);
-   echo $url;
+   
    // walk through the dom and extract doctor information
    $info['doc_name'] = $link2->find('span[id=Name]',0)->plaintext;
    $info['doc_fname'] = $link2->find('span[id="FatherName"]',0)->plaintext;
@@ -38,7 +38,7 @@ for($id = 367729; $id <= 1199999; $id++)
 	  'doc_univ' => (trim($info['doc_univ'])),
           'permanent_address' => (trim($info['doc_address']))	 
     ));
-    
+    echo $url;
   //clean out the dom
   $link2->__destruct();
 }
