@@ -10,7 +10,7 @@ for($id = 1128965; $id <= 1199999; $id++)
 	$link2 = file_get_html($url);
    
    // walk through the dom and extract doctor information
-   $info['doc_name'] = $link2->find('span[id=Name]',0)->plaintext;
+   $info['doc_name'] = $link2->find('span[id="Name"]',0)->plaintext;
    $info['doc_fname'] = $link2->find('span[id="FatherName"]',0)->plaintext;
    $info['doc_dob'] = $link2->find('span[id="DOB"]',0)->plaintext;
    $info['doc_infoyear'] = $link2->find('span[id="lbl_Info"]',0)->plaintext;
