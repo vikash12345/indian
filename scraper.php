@@ -1,7 +1,7 @@
 <?
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
-//
+echo $query = "select count(name) from 'data'";
 /** looping over list of ids of doctors **/
 for($id = 1199142; $id <= 1199999; $id++)
 	{
